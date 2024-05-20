@@ -27,7 +27,19 @@ function divide(a, b) {
     return sum;
 }
 
-console.log(add(3,5))
-console.log(subtract(3,5))
-console.log(multiply(3,5))
-console.log(divide(3,5))
+//Create function operate() that takes an operator and two numbers, then calls on above function on the numbers.
+
+function operate(firstNum, secondNum, operator) {
+    if (operator === add) {
+        return firstNum + secondNum
+    } else if (operator === subtract) {
+        return firstNum - secondNum
+    } else if (operator === multiply) {
+        return firstNum * secondNum
+    } else return firstNum / secondNum;
+}
+
+console.log(operate(3,5,add));
+console.log(operate(3,5,subtract));
+console.log(operate(3,5,multiply));
+console.log(operate(3,5,divide));
