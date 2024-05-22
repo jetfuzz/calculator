@@ -1,11 +1,14 @@
-//Create functions for all basic math operators
-//(addition, subtraction, multiply and divide)
+let display = document.getElementById("calculator-display")
+let calculatorBtn = document.querySelectorAll(".calculator-btn")
+let clearBtn = document.getElementById("clear-btn")
+let operatorBtn = document.querySelectorAll("operator-btn")
+let equalsBtn = document.getElementById("equals-btn")
 
-//Create variables for each aspect of calculation
-
-let firstNum;
-let secondNum;
+let x;
+let y;
 let operator;
+
+display.innerText = 0;
 
 function add(a, b) {
     let sum = a + b;
@@ -27,19 +30,30 @@ function divide(a, b) {
     return sum;
 }
 
-//Create function operate() that takes an operator and two numbers, then calls on above function on the numbers.
-
-function operate(firstNum, secondNum, operator) {
+function operate(x, y, operator) {
     if (operator === add) {
-        return firstNum + secondNum
+        return x + y
     } else if (operator === subtract) {
-        return firstNum - secondNum
+        return x - y
     } else if (operator === multiply) {
-        return firstNum * secondNum
-    } else return firstNum / secondNum;
+        return x * y
+    } else return x / y;
 }
 
-console.log(operate(3,5,add));
-console.log(operate(3,5,subtract));
-console.log(operate(3,5,multiply));
-console.log(operate(3,5,divide));
+//create the functions that populate the display when you click the number buttons
+//store display value in a variable to use later
+
+function calculatorDisplayValue() {
+    let x = calculatorBtn.forEach(button => button.addEventListener("click", () => {
+        let buttonContent = button.textContent;
+        display.textContent = buttonContent;
+    }))
+}
+
+function clearDisplay() {
+    clearBtn.addEventListener("click", () => {
+
+    })
+}
+
+calculatorDisplayValue()

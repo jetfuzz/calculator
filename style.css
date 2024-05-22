@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: lightblue;
+    background-color: rgb(187, 202, 214);
 }
 
 .calculator {
@@ -11,10 +11,10 @@ body {
     margin-block-start: 2em;
     max-inline-size: 22rem;
     overflow: hidden;
-    color: hsl(202, 11%, 29%);
+    color: hsl(200, 6%, 20%);
 }
 
-.calculator__display {
+.calculator-display {
     background: hsl(255, 100%, 100%);
     font-size: 4.2rem;
     padding-block-start: 3rem;
@@ -23,7 +23,7 @@ body {
     text-align: end;
 }
 
-.calculator__btns {
+.calculator-btns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1px;
@@ -31,7 +31,7 @@ body {
     padding: 0.5rem;
 }
 
-.calculator__btn {
+.calculator-btn {
     background: hsl(210, 25%, 95%);
     border: none;
     padding-block-start: 1rem;
@@ -46,24 +46,16 @@ body {
     cursor: pointer;
 }
 
-.calculator__btn--zero {
+.calculator-btn-zero {
     grid-column: span 2;
     inline-size: calc(70px * 2 + 0.5rem);
-}
-
-.calculator__btn:hover {
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
-    outline: none;
-}
-
-.calculator__btn--operator {
-    background: hsl(208, 25%, 86%);
-}
-
-.calculator__btn--operator:active {
-    background: hsl(208, 24%, 80%);
-}
-
-.calculator__btn--zero {
     height: auto;
+}
+
+.calculator-btn:hover {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+}
+
+.calculator-btn-operator {
+    background: hsl(208, 25%, 86%);
 }

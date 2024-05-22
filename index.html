@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="index.js"></script>
+    <script defer src="index.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator">
-        <div class="calculator__display">0</div>
-        <div class="calculator__btns">
-            <button class="calculator__btn">AC</button>
-            <button class="calculator__btn">+/-</button>
-            <button class="calculator__btn">%</button>
-            <button class="calculator__btn calculator__btn--operator">÷</button>
-            <button class="calculator__btn">7</button>
-            <button class="calculator__btn">8</button>
-            <button class="calculator__btn">9</button>
-            <button class="calculator__btn calculator__btn--operator">&times;</button>
-            <button class="calculator__btn">4</button>
-            <button class="calculator__btn">5</button>
-            <button class="calculator__btn">6</button>
-            <button class="calculator__btn calculator__btn--operator">-</button>
-            <button class="calculator__btn">1</button>
-            <button class="calculator__btn">2</button>
-            <button class="calculator__btn">3</button>
-            <button class="calculator__btn calculator__btn--operator">+</button>
-            <button class="calculator__btn calculator__btn--zero">0</button>
-            <button class="calculator__btn">.</button>
-            <button class="calculator__btn calculator__btn--operator">=</button>
+        <div class="calculator-display" id="calculator-display"></div>
+        <div class="calculator-btns">
+            <button class="calculator-btn calculator-btn-operator" id="clear-btn">AC</button>
+            <button class="calculator-btn calculator-btn-operator">+/-</button>
+            <button class="calculator-btn calculator-btn-operator" id="operator-btn">%</button>
+            <button class="calculator-btn calculator-btn-operator" id="operator-btn">÷</button>
+            <button class="calculator-btn">7</button>
+            <button class="calculator-btn">8</button>
+            <button class="calculator-btn">9</button>
+            <button class="calculator-btn calculator-btn-operator" id="operator-btn">&times;</button>
+            <button class="calculator-btn">4</button>
+            <button class="calculator-btn">5</button>
+            <button class="calculator-btn">6</button>
+            <button class="calculator-btn calculator-btn-operator" id="operator-btn">-</button>
+            <button class="calculator-btn">1</button>
+            <button class="calculator-btn">2</button>
+            <button class="calculator-btn">3</button>
+            <button class="calculator-btn calculator-btn-operator" id="operator-btn">+</button>
+            <button class="calculator-btn calculator-btn-zero">0</button>
+            <button class="calculator-btn">.</button>
+            <button class="calculator-btn calculator-btn-operator" id="equals-btn">=</button>
         </div>
     </div>
 </body>
