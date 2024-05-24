@@ -56,6 +56,6 @@ body {
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
 }
 
-.calculator-btn-operator {
+.calculator-btn-grey {
     background: hsl(208, 25%, 86%);
 }

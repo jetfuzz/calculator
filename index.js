@@ -1,59 +1,79 @@
-let display = document.getElementById("calculator-display")
-let calculatorBtn = document.querySelectorAll(".calculator-btn")
-let clearBtn = document.getElementById("clear-btn")
-let operatorBtn = document.querySelectorAll("operator-btn")
-let equalsBtn = document.getElementById("equals-btn")
+let display = document.getElementById("calculator-display");
+let numBtn = document.querySelectorAll(".num-btn");
+let clearBtn = document.getElementById("clear-btn");
+let equalsBtn = document.getElementById("equals-btn");
+let operatorBtn = document.querySelectorAll(".operator-btn");
 
-let x;
-let y;
-let operator;
+let firstNum = "";
+let secondNum = "";
+let operator = "";
 
 display.innerText = 0;
 
 function add(a, b) {
-    let sum = a + b;
-    return sum;
+    return a + b;
 }
 
 function subtract(a, b) {
-    let sum = a - b;
-    return sum;
+    return a - b;
 }
 
 function multiply(a, b) {
-    let sum = a * b;
-    return sum;
+    return a * b;
 }
 
 function divide(a, b) {
-    let sum = a / b;
-    return sum;
+    return a / b;
 }
 
-function operate(x, y, operator) {
-    if (operator === add) {
-        return x + y
-    } else if (operator === subtract) {
-        return x - y
-    } else if (operator === multiply) {
-        return x * y
-    } else return x / y;
+function operate(firstNum, secondNum, operator) {
+    firstNum = parseFloat(firstNum);
+    secondNum = parseFloat(secondNum);
+
+    if (operator === "+") {
+        return firstNum + secondNum
+    } else if (operator === "-") {
+        return firstNum - secondNum
+    } else if (operator === "&times") {
+        return firstNum * secondNum
+    } else if (operator === "÷") {
+        return firstNum / secondNum
+    } else return "lmao"
 }
 
-//create the functions that populate the display when you click the number buttons
-//store display value in a variable to use later
+//Display numbers on button click
+numBtn.forEach(button => button.addEventListener("click", () => {
+    let buttonContent = button.textContent;
+    display.textContent = buttonContent;
+}))
 
-function calculatorDisplayValue() {
-    let x = calculatorBtn.forEach(button => button.addEventListener("click", () => {
-        let buttonContent = button.textContent;
-        display.textContent = buttonContent;
-    }))
-}
-
-function clearDisplay() {
-    clearBtn.addEventListener("click", () => {
-
+numBtn.forEach(number => {
+    number.addEventListener("click", e => {
+        if (operator === "") {
+            firstNum += e.target.innerText;
+            console.log(firstNum)
+        } else {
+            secondNum += e.target.innerText;
+            console.log(secondNum)
+        }
     })
-}
+})
 
-calculatorDisplayValue()
+operatorBtn.forEach(op => {
+    op.addEventListener("click", e => {
+        operator = e.target.innerText;
+        console.log(operator);
+    });
+});
+
+equalsBtn.addEventListener("click", () => {
+    console.log(operate(firstNum, secondNum, operator));
+    display.textContent = operate(firstNum, secondNum, operator);
+})
+
+clearBtn.addEventListener("click", () => {
+    firstNum = "";
+    secondNum = "";
+    operator = "";
+    display.innerText = 0;
+})

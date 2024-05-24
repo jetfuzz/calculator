@@ -1,1 +1,1 @@
-Calculator project created for The Odin Project
+Calculator created for The Odin Project
