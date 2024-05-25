@@ -11,12 +11,12 @@ display.innerText = 0;
 
 numBtn.forEach(number => {
     number.addEventListener("click", e => {
-    let numberContent = number.textContent;
-    display.textContent = numberContent;
         if (operator === "") {
             firstNum += e.target.innerText;
+            display.textContent = firstNum;
         } else {
             secondNum += e.target.innerText;
+            display.textContent = secondNum;
         }
     })
 })
@@ -37,7 +37,6 @@ operatorBtn.forEach(op => {
                     console.log(parseFloat(firstNum) + parseFloat(secondNum));
                     display.textContent = parseFloat(firstNum) + parseFloat(secondNum);
                     break;
-
                 case "-":
                     console.log(parseFloat(firstNum) - parseFloat(secondNum));
                     display.textContent = parseFloat(firstNum) - parseFloat(secondNum);
@@ -49,6 +48,10 @@ operatorBtn.forEach(op => {
                 case "÷":
                     console.log(parseFloat(firstNum) / parseFloat(secondNum));
                     display.textContent = parseFloat(firstNum) / parseFloat(secondNum);
+                    break;
+                case "%":
+                    console.log(parseFloat(firstNum) % parseFloat(secondNum));
+                    display.textContent = parseFloat(firstNum) % parseFloat(secondNum);
                     break;
                 default:
                     break;
