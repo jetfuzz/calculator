@@ -64,6 +64,8 @@ function calculateResult() {
         case "×":
             return (parseFloat(firstNum) * parseFloat(secondNum)).toString();
         case "÷":
+            if(secondNum === "0")
+                return "Error"
             return (parseFloat(firstNum) / parseFloat(secondNum)).toString();
         case "%":
             return (parseFloat(firstNum) % parseFloat(secondNum)).toString();
