@@ -12,10 +12,14 @@ display.innerText = 0;
 numBtn.forEach(number => {
     number.addEventListener("click", e => {
         if (operator === "") {
-            firstNum += e.target.innerText;
+            if (firstNum.length < 9) {
+                firstNum += e.target.innerText;
+            }
             display.textContent = firstNum;
         } else {
-            secondNum += e.target.innerText;
+            if (secondNum.length < 9) {
+                secondNum += e.target.innerText;
+            }
             display.textContent = secondNum;
         }
     })
@@ -23,10 +27,10 @@ numBtn.forEach(number => {
 
 piBtn.addEventListener("click", () => {
     if (operator === "") {
-        firstNum = Math.PI.toString();
+        firstNum = Math.PI.toString().substring(0, 9);
         display.textContent = firstNum;
     } else {
-        secondNum = Math.PI.toString();
+        secondNum = Math.PI.toString().substring(0, 9);
         display.textContent = secondNum;
     }
 })
@@ -35,14 +39,14 @@ operatorBtn.forEach(op => {
     op.addEventListener("click", e => {
         if (e.target.innerText !== "=") {
             if (secondNum !== "") {
-                firstNum = calculateResult();
+                firstNum = calculateResult().substring(0, 9);
                 display.textContent = firstNum;
                 secondNum = "";
             }
             operator = e.target.innerText;
         } else {
             if (secondNum !== "") {
-                display.textContent = calculateResult();
+                display.textContent = calculateResult().substring(0, 9);
                 firstNum = display.textContent;
                 secondNum = "";
                 operator = "";
