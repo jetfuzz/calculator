@@ -1,7 +1,8 @@
-let display = document.getElementById("calculator-display");
-let numBtn = document.querySelectorAll(".num-btn");
-let clearBtn = document.getElementById("clear-btn");
-let operatorBtn = document.querySelectorAll(".operator-btn");
+const display = document.getElementById("calculator-display");
+const numBtn = document.querySelectorAll(".num-btn");
+const clearBtn = document.getElementById("clear-btn");
+const operatorBtn = document.querySelectorAll(".operator-btn");
+const piBtn = document.querySelector(".pi-btn");
 
 let firstNum = "";
 let secondNum = "";
@@ -18,6 +19,16 @@ numBtn.forEach(number => {
             display.textContent = secondNum;
         }
     })
+})
+
+piBtn.addEventListener("click", () => {
+    if (operator === "") {
+        firstNum = Math.PI.toString();
+        display.textContent = firstNum;
+    } else {
+        secondNum = Math.PI.toString();
+        display.textContent = secondNum;
+    }
 })
 
 operatorBtn.forEach(op => {
