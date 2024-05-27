@@ -6,7 +6,6 @@ let operatorBtn = document.querySelectorAll(".operator-btn");
 let firstNum = "";
 let secondNum = "";
 let operator = "";
-
 display.innerText = 0;
 
 numBtn.forEach(number => {
@@ -24,41 +23,40 @@ numBtn.forEach(number => {
 operatorBtn.forEach(op => {
     op.addEventListener("click", e => {
         if (e.target.innerText !== "=") {
+            if (secondNum !== "") {
+                firstNum = calculateResult();
+                display.textContent = firstNum;
+                secondNum = "";
+            }
             operator = e.target.innerText;
-
-            console.log(firstNum);
-            console.log(operator);
-
         } else {
-            console.log(secondNum);
-
-            switch (operator) {
-                case "+":
-                    console.log(parseFloat(firstNum) + parseFloat(secondNum));
-                    display.textContent = parseFloat(firstNum) + parseFloat(secondNum);
-                    break;
-                case "-":
-                    console.log(parseFloat(firstNum) - parseFloat(secondNum));
-                    display.textContent = parseFloat(firstNum) - parseFloat(secondNum);
-                    break;
-                case "×":
-                    console.log(parseFloat(firstNum) * parseFloat(secondNum));
-                    display.textContent = parseFloat(firstNum) * parseFloat(secondNum);
-                    break;
-                case "÷":
-                    console.log(parseFloat(firstNum) / parseFloat(secondNum));
-                    display.textContent = parseFloat(firstNum) / parseFloat(secondNum);
-                    break;
-                case "%":
-                    console.log(parseFloat(firstNum) % parseFloat(secondNum));
-                    display.textContent = parseFloat(firstNum) % parseFloat(secondNum);
-                    break;
-                default:
-                    break;
+            if (secondNum !== "") {
+                display.textContent = calculateResult();
+                firstNum = display.textContent;
+                secondNum = "";
+                operator = "";
             }
         }
-    });
+    })
 });
+
+function calculateResult() {
+    switch (operator) {
+        case "+":
+            return (parseFloat(firstNum) + parseFloat(secondNum)).toString();
+        case "-":
+            return (parseFloat(firstNum) - parseFloat(secondNum)).toString();
+        case "×":
+            return (parseFloat(firstNum) * parseFloat(secondNum)).toString();
+        case "÷":
+            return (parseFloat(firstNum) / parseFloat(secondNum)).toString();
+        case "%":
+            return (parseFloat(firstNum) % parseFloat(secondNum)).toString();
+        default:
+            return firstNum;
+    }
+}
+
 
 clearBtn.addEventListener("click", () => {
     firstNum = "";
